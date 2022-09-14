@@ -1,3 +1,6 @@
+# wujie / index.js
+
+```ts
 import importHTML, { processCssLoader } from "./entry";
 import { StyleObject } from "./template";
 import WuJie, { lifecycle } from "./sandbox";
@@ -296,3 +299,5 @@ export function destroyApp(id: string): void {
     sandbox.destroy();
   }
 }
+
+```

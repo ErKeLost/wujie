@@ -3,7 +3,7 @@
     <div id="nav" :class="active ? 'active' : ''" @click="close">
       <router-link to="/home">介绍</router-link>
       <!-- react16相关路由 -->
-      <router-link to="/react16">
+      <!-- <router-link to="/react16">
         react16
         <a-icon :class="['main-icon', { active: react16Flag }]" type="caret-up" @click.native="handleFlag('react16')" />
       </router-link>
@@ -14,9 +14,9 @@
         <router-link to="/react16-sub/communication">communication</router-link>
         <router-link to="/react16-sub/nest">nest</router-link>
         <router-link to="/react16-sub/font">font</router-link>
-      </div>
+      </div> -->
       <!-- react17相关路由 -->
-      <router-link to="/react17">
+      <!-- <router-link to="/react17">
         react17
         <span class="alive">保活</span>
         <a-icon :class="['main-icon', { active: react17Flag }]" type="caret-up" @click.native="handleFlag('react17')" />
@@ -27,7 +27,7 @@
         <router-link to="/react17-sub/location">location</router-link>
         <router-link to="/react17-sub/communication">communication</router-link>
         <router-link to="/react17-sub/state">state</router-link>
-      </div>
+      </div> -->
       <!-- vue2相关路由 -->
       <router-link to="/vue2">
         vue2
@@ -40,7 +40,7 @@
         <router-link to="/vue2-sub/communication">communication</router-link>
       </div>
       <!-- vue3相关路由 -->
-      <router-link to="/vue3">
+      <!-- <router-link to="/vue3">
         vue3
         <span class="alive">保活</span>
         <a-icon :class="['main-icon', { active: vue3Flag }]" type="caret-up" @click.native="handleFlag('vue3')" />
@@ -63,7 +63,7 @@
       </div>
       <router-link to="/angular12">angular12</router-link>
       <router-link to="/all">all</router-link>
-      <a-button class="menu-icon" type="primary" icon="unordered-list" size="large" @click.stop="active = !active" />
+      <a-button class="menu-icon" type="primary" icon="unordered-list" size="large" @click.stop="active = !active" /> -->
     </div>
     <div class="content" @click="active = false">
       <router-view />

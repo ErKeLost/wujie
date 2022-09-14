@@ -45,6 +45,7 @@ export default defineConfig({
     },
 
     nav: [
+      { text: "无界源码解析", link: "/analysis/", activeMatch: "/analysis/" },
       { text: "指南", link: "/guide/", activeMatch: "/guide/" },
       {
         text: "API",
@@ -159,6 +160,28 @@ export default defineConfig({
             {
               text: "react主应用",
               link: "https://github.com/Tencent/wujie/tree/master/examples/main-react",
+            },
+          ],
+        },
+      ],
+      "/analysis/": [
+        {
+          text: "index.js",
+          collapsible: true,
+          items: [
+            {
+              text: "index.js 解析",
+              link: "/analysis/index",
+            },
+          ],
+        },
+        {
+          text: "shadow.js",
+          collapsible: true,
+          items: [
+            {
+              text: "shadow.js 解析",
+              link: "/analysis/shadow",
             },
           ],
         },
