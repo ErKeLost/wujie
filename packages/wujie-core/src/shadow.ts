@@ -30,15 +30,25 @@ declare global {
 /**
  * 制作webComponent沙箱
  */
+
+// 创建wujieApp 元素
 class WujieApp extends HTMLElement {
+  // 首次被插入到文档 DOM 节点上时被调用
   connectedCallback(): void {
+    // 判断有没有shadow root
     if (this.shadowRoot) return;
+    // 创建一个shadowRoot
+    console.log("创建一个webComponent");
+
     const shadowRoot = this.attachShadow({ mode: "open" });
+
     const sandbox = getWujieById(this.getAttribute(WUJIE_DATA_ID));
+
     patchElementEffect(shadowRoot, sandbox.iframe.contentWindow);
     sandbox.shadowRoot = shadowRoot;
   }
 
+  // 当 custom element 从文档 DOM 中删除时，被调用。
   disconnectedCallback(): void {
     const sandbox = getWujieById(this.getAttribute(WUJIE_DATA_ID));
     sandbox?.unmount();
@@ -49,7 +59,9 @@ class WujieApp extends HTMLElement {
  * 定义 wujie webComponent，将shadow包裹并获得dom装载和卸载的生命周期
  */
 export function defineWujieWebComponent() {
+  // 判断如果没有wujie-app 获取不到这个元素 那么就去创建定义一个wujie-app
   if (!customElements.get("wujie-app")) {
+    // 定义webComponent
     customElements.define("wujie-app", WujieApp);
   }
 }

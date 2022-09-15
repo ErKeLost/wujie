@@ -10,7 +10,6 @@ import { EventBus } from "./event";
 import { WUJIE_TIPS_STOP_APP, WUJIE_TIPS_NOT_SUPPORTED } from "./constant";
 
 export const bus = new EventBus(Date.now().toString());
-console.log(bus);
 
 export interface ScriptObjectLoader {
   /** 脚本地址，内联为空 */
@@ -146,14 +145,15 @@ export type cacheOptions = baseOptions & {
 
 // 2022.9.14
 // 解析1. 如果window里面又__wujie这个变量, 说明我们走的是//不对//单独子应用启动，
-// 而且__POWERED_BY_WUJIE__子应用没初始化完成说明iframe加载得时候主应用代码混入导致iframe会出现丢失情况我们应该中断执行
+// 而且__POWERED_BY_WUJIE__子应用没初始化完成说明iframe加载得时候主应用代码混入
+// 导致iframe会出现丢失情况我们应该中断执行
 if (window.__WUJIE && !window.__POWERED_BY_WUJIE__) {
   warn(WUJIE_TIPS_STOP_APP);
   throw new Error(WUJIE_TIPS_STOP_APP);
 }
 
 // 处理子应用链接跳转
-processAppForHrefJump();
+// processAppForHrefJump();
 
 // 解析二 先看webComponent
 // 定义webComponent容器
@@ -165,6 +165,7 @@ if (!wujieSupport) warn(WUJIE_TIPS_NOT_SUPPORTED);
 /**
  * 缓存子应用配置
  */
+// 这是传递过来的wujie options
 export function setupApp(options: cacheOptions): void {
   if (options.name) addSandboxCacheWithOptions(options.name, options);
 }
@@ -173,6 +174,8 @@ export function setupApp(options: cacheOptions): void {
  * 运行无界app
  */
 export async function startApp(startOptions: startOptions): Promise<Function | void> {
+  console.log("start");
+
   const sandbox = getWujieById(startOptions.name);
   const cacheOptions = getOptionsById(startOptions.name);
   // 合并缓存配置

@@ -9,6 +9,7 @@ export interface SandboxCache {
 export const idToSandboxCacheMap = window.__POWERED_BY_WUJIE__
   ? window.__WUJIE.inject.idToSandboxMap
   : new Map<String, SandboxCache>();
+console.log(idToSandboxCacheMap);
 
 export function getWujieById(id: String): Wujie | null {
   return idToSandboxCacheMap.get(id)?.wujie || null;
