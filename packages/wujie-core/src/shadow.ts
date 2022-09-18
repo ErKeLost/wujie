@@ -38,9 +38,8 @@ class WujieApp extends HTMLElement {
     // 判断有没有shadow root
     if (this.shadowRoot) return;
     // 创建一个shadowRoot
-    console.log("创建一个webComponent");
-
     const shadowRoot = this.attachShadow({ mode: "open" });
+    console.log(shadowRoot);
 
     const sandbox = getWujieById(this.getAttribute(WUJIE_DATA_ID));
 
